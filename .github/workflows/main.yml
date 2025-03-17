@@ -15,7 +15,7 @@ jobs:
     - name: 📂 Sync files
       uses: Penguibird/FTP-Deploy-Action@4.2.0
       with:
-        server: https://corpwings.in/
+        server: www.corpwings.in
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
-        # server-dir: /production.cipher.co.tz/
+        server-dir: /production.cipher.co.tz/
