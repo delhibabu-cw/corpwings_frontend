@@ -1,0 +1,20 @@
+.section-title h1{
+    font-family: 'Poppins';
+}
+
+.card-data{
+    cursor: pointer;
+}
+
+.image-custom {
+    height: 200px !important;
+    width: 100%;
+}
+
+.image-custom img{
+    height: 200px !important;
+}
+
+h6{
+    color: #333333;
+}

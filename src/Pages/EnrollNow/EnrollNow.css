@@ -1,0 +1,138 @@
+.main-div{
+    margin-top: 70px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins';
+}
+
+h1{
+    font-family: 'Inter' !important;
+}
+
+.header-section{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0px 7%;
+}
+
+.table-div{
+    margin-top: 20px;
+    width: 100%;
+    padding: 0px 7%;
+}
+
+.main-form-div{
+  padding: 0px 4% 20px 4%;
+}
+
+/* Dropdown Button */
+.btn-light {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 1000;
+  display: block;
+  min-width: 120px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-item {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: #f1f1f1;
+}
+
+/* Dropdown Icon Rotation */
+.dropdown-icon {
+  transition: transform 0.3s ease;
+}
+
+.dropdown-icon.rotate {
+  transform: rotate(180deg);
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  gap: 8px;
+}
+
+.page-item .page-link {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #124090;
+  border: 1px solid #124090;
+  background-color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.page-item .page-link:hover {
+  background-color: #1240900a;
+}
+
+.page-item.disabled .page-link {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+
+/* btn css */
+/* @keyframes bg_move {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .download-btn {
+    display: inline-block;
+    background: url("./Button.png"); 
+    background-size: 60% 100%;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    padding: 10px 25px;
+    margin-right: 20px;
+    font-family: var(--menu-font, sans-serif);
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    animation: bg_move 30s infinite linear;
+  }
+  
+  /* Hover effect */
+  /* .download-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  } */
+  

@@ -1,0 +1,37 @@
+
+.service-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure full height */
+}
+
+.service-img {
+    flex: 0 0 auto; /* Image section remains fixed */
+}
+
+.service-img img {
+    margin: 0;
+    padding: 0;
+    display: block; /* Remove potential inline spacing */
+}
+
+.service-content {
+    flex: 1 1 auto; /* Content adjusts dynamically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center-align content vertically */
+    align-items: center; /* Center-align content horizontally */
+    text-align: center; /* Center-align text */
+    padding: 1rem;
+    margin: 0;
+}
+
+.service-content-inner h5 {
+    margin: 0; /* Remove default margins */
+    padding: 0.5rem 0; /* Adjust padding */
+    font-size: 1.2rem; /* Customize text size */
+}
+
+
+
+

@@ -1,0 +1,225 @@
+import React, { useState, useRef, useEffect } from 'react';
+import axios from 'axios';
+
+import video from '../../img/video.mp4'; // Video file
+import './Appointment.css'; // Import the CSS file for styling
+
+const Appointment = () => {
+    const [formData, setFormData] = useState({
+        fullName: '',
+        email: '',
+        whatsappNumber: '',
+        gender: '',
+        collegeName: '',
+        degree: '',
+        year: '',
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false); // For loading state
+    const [submitSuccess, setSubmitSuccess] = useState(false); // For success message
+
+    const videoRef = useRef(null);
+
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.play(); // Play the video automatically on mount
+        }
+    }, []);
+
+    const handlePlayPause = () => {
+        if (videoRef.current) {
+            if (videoRef.current.paused) {
+                videoRef.current.play();
+            } else {
+                videoRef.current.pause();
+            }
+        }
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true); // Show loading message
+
+        try {
+            // Make POST request to your backend
+            await axios.post('http://localhost:5000/submit', formData);
+
+            // Reset the form state
+            setFormData({
+                fullName: '',
+                email: '',
+                whatsappNumber: '',
+                gender: '',
+                collegeName: '',
+                degree: '',
+                year: '',
+            });
+
+            // Show success message
+            setSubmitSuccess(true);
+            setIsSubmitting(false); // Hide loading message
+
+            // Hide success message after 3 seconds (optional)
+            setTimeout(() => setSubmitSuccess(false), 3000);
+        } catch (error) {
+            console.error('Error submitting the form:', error);
+            setIsSubmitting(false); // Hide loading message on error
+        }
+    };
+
+    return (
+        <div className="appointment-container py-5">
+            <div className="container py-5">
+                <div className="row g-5 align-items-center">
+                    <div className="col-lg-6 wow fadeInLeft" data-wow-delay="0.2s">
+                        <div className="section-title text-start">
+                            <h4 className="sub-title pe-3 mb-0">BEST DIGITAL MARKETING</h4>
+                            <h1 className="display-4 mb-4">Best Quality Services and Expert Solutions</h1>
+                            <p className="mb-4">
+                                At CorpWings, we're on a mission to revolutionize the digital marketing landscape.
+                                Founded with a vision to empower businesses of all sizes, we bring together a
+                                dedicated team of passionate experts who thrive on innovation and creativity.
+                            </p>
+                            <div className="video-container">
+                                <video
+                                    ref={videoRef}
+                                    width="100%"
+                                    height="auto"
+                                    controls
+                                    muted
+                                    onClick={handlePlayPause}
+                                >
+                                    <source src={video} type="video/mp4" />
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="col-lg-6 wow fadeInRight position-relative" data-wow-delay="0.4s">
+                        <div className="appointment-form rounded p-5">
+                            <p className="fs-4 text-uppercase text-primary">Get In Touch</p>
+                            <h1 className="display-5 mb-4 text-center">Enroll Now</h1>
+
+                            {/* Display loading message */}
+                            {isSubmitting && (
+                                <div className="loading-message text-center">
+                                    <p>Loading...</p>
+                                </div>
+                            )}
+
+                            {/* Display success message */}
+                            {submitSuccess && (
+                                <div className="alert alert-success text-center position-absolute top-50 start-50 translate-middle">
+                                    Form submitted successfully!
+                                </div>
+                            )}
+
+                            {!isSubmitting && !submitSuccess && (
+                                <form onSubmit={handleSubmit} className="vibrant-glass-form">
+                                    <div className="row gy-3 gx-4">
+                                        <div className="col-xl-6">
+                                            <input
+                                                type="text"
+                                                name="fullName"
+                                                className="form-control py-3 vibrant-input"
+                                                placeholder="Full Name"
+                                                value={formData.fullName}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                        </div>
+                                        <div className="col-xl-6">
+                                            <input
+                                                type="email"
+                                                name="email"
+                                                className="form-control py-3 vibrant-input"
+                                                placeholder="Email"
+                                                value={formData.email}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                        </div>
+                                        <div className="col-xl-6">
+                                            <input
+                                                type="tel"
+                                                name="whatsappNumber"
+                                                className="form-control py-3 vibrant-input"
+                                                placeholder="WhatsApp Number"
+                                                value={formData.whatsappNumber}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                        </div>
+                                        <div className="col-xl-6">
+                                            <select
+                                                name="gender"
+                                                className="form-select py-3 vibrant-input"
+                                                aria-label="Default select example"
+                                                value={formData.gender}
+                                                onChange={handleChange}
+                                                required
+                                            >
+                                                <option value="" disabled>Your Gender</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Others">Others</option>
+                                            </select>
+                                        </div>
+                                        <div className="col-xl-6">
+                                            <input
+                                                type="text"
+                                                name="collegeName"
+                                                className="form-control py-3 vibrant-input"
+                                                placeholder="College Name"
+                                                value={formData.collegeName}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                        </div>
+                                        <div className="col-xl-6">
+                                            <input
+                                                type="text"
+                                                name="degree"
+                                                className="form-control py-3 vibrant-input"
+                                                placeholder="Degree"
+                                                value={formData.degree}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                        </div>
+                                        <div className="col-xl-6">
+                                            <input
+                                                type="text"
+                                                name="year"
+                                                className="form-control py-3 vibrant-input"
+                                                placeholder="Your Year"
+                                                value={formData.year}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                        </div>
+                                        <div className="col-12">
+                                            <button type="submit" className="btn btn-primary vibrant-btn w-100 py-3">
+                                                SUBMIT NOW
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Appointment;

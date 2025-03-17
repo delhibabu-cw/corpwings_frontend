@@ -1,0 +1,60 @@
+import React from 'react';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import Cwlogo from '../../img/Cwlogo.jpg'; // Adjust the path as necessary
+import '../../css/style.css'; // Your custom styles (if any)
+
+function CustomNavbar() {
+
+  const handleScroll = (to) => {
+    window.history.pushState(null, '', `#${to}`);
+    window.scrollTo({
+      top: document.getElementById(to)?.offsetTop || 0,
+      behavior: 'smooth',
+    });
+
+    // Collapse the navbar after clicking a link on mobile
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    if (navbarToggler && navbarCollapse.classList.contains('show')) {
+      navbarToggler.click();
+    }
+  };
+
+  return (
+    <Navbar bg="white" expand="lg" fixed="top" className="navbar-light">
+      <Container fluid>
+        {/* Left Side: Logo */}
+        <Navbar.Brand href="#home" onClick={() => handleScroll('home')} className="p-3">
+        <img
+    src={Cwlogo}
+    height="40"
+    className="d-inline-block align-text-top"
+    style={{ backgroundColor: 'transparent' }}
+    alt="Logo"
+/>
+
+
+        </Navbar.Brand>
+
+        {/* Responsive Toggle Button */}
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+        {/* Right Side: Navigation Links */}
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link href="#home" onClick={() => handleScroll('home')}>Home</Nav.Link>
+            <Nav.Link href="#about" onClick={() => handleScroll('about')}>About</Nav.Link>
+            <Nav.Link href="#services" onClick={() => handleScroll('services')}>Services</Nav.Link>
+            <Nav.Link href="#team" onClick={() => handleScroll('team')}>Our Team</Nav.Link>
+            <Nav.Link href="#blog" onClick={() => handleScroll('blog')}>Blog</Nav.Link>
+            <Nav.Link href="#contact" onClick={() => handleScroll('contact')}>Contact Us</Nav.Link>
+          </Nav>
+          <Button href="#appointment" className="btn-primary rounded-pill text-white py-2 px-4 ms-lg-3" onClick={() => handleScroll('contact')}>Enroll Now</Button>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+}
+
+export default CustomNavbar;
+

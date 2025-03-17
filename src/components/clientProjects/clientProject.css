@@ -1,0 +1,65 @@
+/* Styling for the logo slider */
+.logo-slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-slider img {
+    max-height: 100px; /* Adjust max height for logos */
+    object-fit: contain; /* Keep logos proportional */
+    margin: 0 auto; /* Center logos */
+    width: 200px;
+}
+
+h1{
+    font-family: 'Poppins';
+}
+
+.marquee-grid{
+    display: flex;
+}
+
+.marquee-item {
+    width: 150px;
+    max-width: 250px;
+    height: 70px;
+    max-height: 80px;
+    border-radius: 9999px; /* Fully rounded */
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    padding: 8px 20px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: white;
+}
+
+/* Marquee image */
+.marquee-image {
+    height: 75px;
+    max-height: 90px;
+    width: 90%;
+    object-fit: contain;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .marquee-item {
+        width: 250px;
+        height: 80px;
+    }
+}
+
+/* Mobile view adjustments */
+/* @media (max-width: 768px) {
+    .logo-slider {
+        padding: 20px 0; 
+    }
+
+    .logo-slide {
+        padding: 0 10px; 
+    }
+} */

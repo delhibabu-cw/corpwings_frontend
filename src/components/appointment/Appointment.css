@@ -1,0 +1,105 @@
+.appointment-container {
+    background: #f8f9fa;
+}
+
+.video-container {
+    position: relative;
+    width: 100%; /* Full width of its container */
+    max-width: 100%; /* Ensures it doesn’t exceed its container’s width */
+}
+
+.video-container video {
+    width: 100%; /* Ensure the video fills its container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.appointment-form {
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-form .form-control,
+.appointment-form .form-select {
+    background: #f8f9fa;
+}
+
+.appointment-form .btn-light {
+    background-color: #fff;
+    border: 1px solid #007bff;
+}
+
+.modal-content {
+    border-radius: 0;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-body {
+    padding: 0;
+}
+
+video {
+    width: 100%; /* Ensure the video fills its container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+
+
+.vibrant-glass-form {
+    background: linear-gradient(135deg, rgba(58,123,213,0.6), rgba(0,210,255,0.6));
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* Add this line for Safari support */
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.vibrant-input {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.vibrant-input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.vibrant-input:focus {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.vibrant-btn {
+    background: linear-gradient(135deg, #00C6FF, #0072FF);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.vibrant-btn:hover {
+    background: linear-gradient(135deg, #0072FF, #00C6FF);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px);
+}
+
+/* .reset-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+ .submit-btn{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+ }

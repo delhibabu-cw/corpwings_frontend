@@ -1,0 +1,11 @@
+.main-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins' !important;
+}
+
+.main-div img{
+    width: 150px;
+}
